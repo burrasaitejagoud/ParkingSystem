@@ -62,7 +62,6 @@ public class CarEntryService {
                 (end.isBefore(FREE_PARKING_END) || end.equals(FREE_PARKING_END) || end.isAfter(FREE_PARKING_START))) {
             return true;
         }
-
         return false;
     }
 
