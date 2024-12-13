@@ -5,16 +5,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.dao.EmptyResultDataAccessException;
 
-import java.time.LocalDate;
-import java.util.List;
+
+
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
-public class ObservationRepositoryTest {
+class ObservationRepositoryTest {
 
     @Autowired
     private ObservationRepository observationRepository;
@@ -27,7 +27,7 @@ public class ObservationRepositoryTest {
         testObservation = new Observation();
         testObservation.setLicenseNumber("ABC123");
         testObservation.setStreetName("Main Street");
-        testObservation.setDateOfObservation(LocalDate.now());
+        testObservation.setDateOfObservation(LocalDateTime.now());
 
         observationRepository.save(testObservation);
     }
@@ -37,7 +37,7 @@ public class ObservationRepositoryTest {
         Observation newObservation = new Observation();
         newObservation.setLicenseNumber("XYZ789");
         newObservation.setStreetName("Broadway");
-        newObservation.setDateOfObservation(LocalDate.now().minusDays(1));
+        newObservation.setDateOfObservation(LocalDateTime.now().minusDays(1));
 
         Observation savedObservation = observationRepository.save(newObservation);
 

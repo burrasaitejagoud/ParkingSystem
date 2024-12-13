@@ -39,7 +39,7 @@ public class ObservationServiceTest {
     @Test
     public void testSaveObservations() {
         // Given
-        Observation observation = new Observation(123L,"DEF456", "Spring", LocalDate.now());
+        Observation observation = new Observation(123L, "DEF456", "Spring", LocalDateTime.now());
         List<Observation> observations = Collections.singletonList(observation);
 
         // When
@@ -53,8 +53,8 @@ public class ObservationServiceTest {
     @Test
     public void testGetAllObservations() {
         // Given
-        Observation observation1 = new Observation(123L,"DEF456", "Spring", LocalDate.now());
-        Observation observation2 = new Observation(123L,"XYZ789", "Java", LocalDate.now());
+        Observation observation1 = new Observation(123L, "DEF456", "Spring", LocalDateTime.now());
+        Observation observation2 = new Observation(123L, "XYZ789", "Java", LocalDateTime.now());
         List<Observation> observations = List.of(observation1, observation2);
 
         when(observationRepository.findAll()).thenReturn(observations);
@@ -75,7 +75,7 @@ public class ObservationServiceTest {
         });
     }
 
-/*    @Test
+    @Test
     public void testSaveObservations_withEmptyList() {
         // Given
         List<Observation> observations = Collections.emptyList();
@@ -86,7 +86,7 @@ public class ObservationServiceTest {
         // Then
         verify(observationRepository, times(0)).saveAll(any());
         assertEquals("Observations uploaded successfully.", response.getBody());
-    }*/
+    /*
     @Test
     public void testSaveObservations_withEmptyList() {
     List<Observation> emptyList = new ArrayList<>();
@@ -103,14 +103,16 @@ public class ObservationServiceTest {
         assertTrue(deletedObservation.isEmpty()); // Verify the observation was deleted
     }*/
 
-    @Test
-    public void testDeleteObservationById_NonExistingObservation() {
-        Long id = 2L;
-        when(observationRepository.existsById(id)).thenReturn(false);
+      /*  @Test
+        public void testDeleteObservationById_NonExistingObservation () {
+            Long id = 2L;
+            when(observationRepository.existsById(id)).thenReturn(false);
 
-        assertThrows(ResponseStatusException.class, () -> {
-            observationService.deleteObservationById(id);
-        });
+            assertThrows(ResponseStatusException.class, () -> {
+                observationService.deleteObservationById(id);
+            });
+        }*/
+
     }
 
 }

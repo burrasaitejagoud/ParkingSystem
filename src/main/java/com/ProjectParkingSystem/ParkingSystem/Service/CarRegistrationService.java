@@ -17,7 +17,8 @@ public class CarRegistrationService {
         return registeredCars.get(licenseNumber);
     }
 
-/*    public void registerCar(CarRegistration carRegistration) {
+    public void registerCar(CarRegistration carRegistration) {
         registeredCars.put(carRegistration.getLicenseNumber(), carRegistration);
-    }*/
+
+    }
 }

@@ -77,4 +77,18 @@ public class CarEntryService {
     public List<CarEntry> getAllCarEntries() {
         return carEntryRepository.findAll();
     }
+
+    public boolean isCarRegistered(String licenseNumber) {
+        return carEntryRepository.existsByLicenseNumber(licenseNumber);
+    }
+
+    public boolean isParkingSessionComplete(String licenseNumber) {
+        CarEntry carEntry = carEntryRepository.findByLicenseNumber(licenseNumber);
+        return carEntry != null && carEntry.getEndTime() != null;
+    }
+
 }
+
+
+
+

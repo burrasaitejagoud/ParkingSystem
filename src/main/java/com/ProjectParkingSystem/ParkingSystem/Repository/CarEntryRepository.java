@@ -10,4 +10,7 @@ public interface CarEntryRepository extends JpaRepository<CarEntry , Long> {
 
     Optional<CarEntry> findByLicenseNumberAndEndTimeIsNull(String licenseNumber);
 
+    boolean existsByLicenseNumber(String licenseNumber);
+
+    CarEntry findByLicenseNumber(String licenseNumber);
 }

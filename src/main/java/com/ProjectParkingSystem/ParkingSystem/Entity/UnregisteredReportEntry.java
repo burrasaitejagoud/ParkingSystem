@@ -19,6 +19,6 @@ public class UnregisteredReportEntry {
     private long id;
     private String licenseNumber;
     private String streetName;
-    private LocalDate observationDate;
+    private LocalDateTime observationDate;
 
 }

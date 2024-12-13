@@ -3,6 +3,8 @@ package com.ProjectParkingSystem.ParkingSystem.Controller;
 import com.ProjectParkingSystem.ParkingSystem.Dto.ExitRequest;
 import com.ProjectParkingSystem.ParkingSystem.Entity.CarEntry;
 import com.ProjectParkingSystem.ParkingSystem.Service.CarEntryService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,15 @@ import java.util.List;
 public class CarEntryController {
     @Autowired
     private CarEntryService carEntryService;
+
+    @Operation(
+            summary = "Calculate parking fee",
+            description = "Calculates the parking fee based on start and end sessions.",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Parking fee calculated successfully"),
+                    @ApiResponse(responseCode = "400", description = "Invalid input data")
+            }
+    )
 
     /*This method will add the cars to the CarEntry Table*/
     @PostMapping("/enter")

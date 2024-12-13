@@ -2,6 +2,7 @@ package com.ProjectParkingSystem.ParkingSystem.Controller;
 
 import com.ProjectParkingSystem.ParkingSystem.Entity.Observation;
 import com.ProjectParkingSystem.ParkingSystem.Service.ObservationService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class ObservationController {
     }
     /*This Method will upload the single obervation*/
     @PostMapping("/uploading")
-    public ResponseEntity<String> uploadObservation(@RequestBody Observation observation) {
+    public ResponseEntity<String> uploadObservation(@Valid @RequestBody Observation observation) {
         observationService.saveObservations(List.of(observation)); // Convert single observation to list
         return ResponseEntity.ok("Observation uploaded successfully.");
     }

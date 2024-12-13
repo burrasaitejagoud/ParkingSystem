@@ -1,8 +1,6 @@
 package com.ProjectParkingSystem.ParkingSystem.Constants;
 
-
 import lombok.Data;
-
 import java.util.Map;
 
 @Data

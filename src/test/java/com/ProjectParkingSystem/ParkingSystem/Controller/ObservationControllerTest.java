@@ -5,7 +5,6 @@ import com.ProjectParkingSystem.ParkingSystem.Service.ObservationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -13,7 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -40,7 +39,7 @@ public class ObservationControllerTest {
 
     @BeforeEach
     public void setup() {
-        sampleObservation = new Observation(123456L,"DEF456", "Spring", LocalDate.now());
+        sampleObservation = new Observation(123456L,"DEF456", "Spring", LocalDateTime.now());
     }
 
     @Test
@@ -62,7 +61,7 @@ public class ObservationControllerTest {
     @Test
     public void testUploadSingleObservation() throws Exception {
         // Given
-        Observation sampleObservation = new Observation(123L,"DEF456", "Spring", LocalDate.now());
+        Observation sampleObservation = new Observation(123L,"DEF456", "Spring", LocalDateTime.now());
        // doNothing().when(observationService).saveObservations(anyList());
         when(observationService.saveObservations(anyList())).thenReturn(ResponseEntity.ok("Observation uploaded successfully."));
 
