@@ -3,6 +3,7 @@ package com.ProjectParkingSystem.ParkingSystem.Service;
 import com.ProjectParkingSystem.ParkingSystem.Entity.CarEntry;
 import com.ProjectParkingSystem.ParkingSystem.Exception.CarEntryNotFoundException;
 import com.ProjectParkingSystem.ParkingSystem.Repository.CarEntryRepository;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 @Service
+@CircuitBreaker(name = "carEntryService")
 public class CarEntryService {
 
     @Autowired
