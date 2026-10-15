@@ -3,11 +3,13 @@ package com.ProjectParkingSystem.ParkingSystem.Service;
 import com.ProjectParkingSystem.ParkingSystem.Entity.Car;
 import com.ProjectParkingSystem.ParkingSystem.Repository.CarRepository;
 import lombok.AllArgsConstructor;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
+@CircuitBreaker(name = "carService")
 @AllArgsConstructor
 public class CarService  {
 

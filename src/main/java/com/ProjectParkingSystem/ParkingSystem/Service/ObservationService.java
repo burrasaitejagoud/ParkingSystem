@@ -2,6 +2,7 @@ package com.ProjectParkingSystem.ParkingSystem.Service;
 
 import com.ProjectParkingSystem.ParkingSystem.Entity.Observation;
 import com.ProjectParkingSystem.ParkingSystem.Repository.ObservationRepository;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@CircuitBreaker(name = "observationService")
 public class ObservationService {
     @Autowired
     private ObservationRepository observationRepository;
